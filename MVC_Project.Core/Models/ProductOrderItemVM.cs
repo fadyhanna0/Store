@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Core.Models
 {
-    public class FoodOrderItemVM
+    public class ProductOrderItemVM
     {
         public int Id { get; set; }
         public string Name { get; set; }

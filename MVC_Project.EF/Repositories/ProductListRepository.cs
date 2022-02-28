@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace MVC_Project.EF.Repositories
 {
-    public class FoodListRepository : BaseRepository<Food>, IFoodListRepository
+    public class ProductListRepository : BaseRepository<Product>, IProductListRepository
     {
         private readonly RestaurantService _context;
 
-        public FoodListRepository(RestaurantService context) : base(context)
+        public ProductListRepository(RestaurantService context) : base(context)
         {
             _context = context;
         }
 
-        public IEnumerable<Food> GetFood()
+        public IEnumerable<Product> GetFood()
         {
-            return _context.Foods.Include(s => s.Category).ToList();
+            return _context.Products.Include(s => s.Category).ToList();
         }
     }
 }

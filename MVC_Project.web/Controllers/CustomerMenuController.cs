@@ -20,7 +20,7 @@ namespace MVC_Project.web.Controllers
         }
        public IActionResult Product(int id)
         {
-            List<Food> food= _unitOfWork.FoodList.GetAll(x=>x.Category_Id==id).ToList();
+            List<Product> food= _unitOfWork.FoodList.GetAll(x=>x.Category_Id==id).ToList();
             List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
             ViewData["categories"] = categories;
             return View(food);
@@ -45,7 +45,7 @@ namespace MVC_Project.web.Controllers
 
             if (OldOrderItem == null)
             {
-                 Food food=_unitOfWork.FoodList.GetById(id);
+                 Product food=_unitOfWork.FoodList.GetById(id);
                 OrderItem orderitem = new();
                 orderitem.Food_Id = id;
                 orderitem.Order_Id = OldOrder.Id;
@@ -97,6 +97,8 @@ namespace MVC_Project.web.Controllers
 
         public IActionResult Checkout()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             string CustomerId = Request.Cookies["CustomerId"].ToString();
             var OldOrder = _unitOfWork.OrderRepository.GetById(s => s.Customer_Id == CustomerId && s.Accepted == false);
             if (OldOrder != null)
@@ -106,16 +108,17 @@ namespace MVC_Project.web.Controllers
                 return View();
 
             }
-            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
-            ViewData["categories"] = categories;
+          
             return RedirectToAction("Basket");
 
         }
         public IActionResult GetCategoriestoNav()
         {
+            
+            var userIdentity = User.Identity.Name;
+            var Role=_unitOfWork.AppUser.Find(x=>x.UserName == userIdentity);
             List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
             ViewData["categories"] = categories;
-
             return View("DisplayMenu");
         }
 

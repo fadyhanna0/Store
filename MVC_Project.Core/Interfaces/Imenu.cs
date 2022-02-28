@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace MVC_Project.Core.Interfaces
 {
-    public interface Imenu : IBaseRepository<Food>
+    public interface Imenu : IBaseRepository<Product>
     {
         //special method for menu model only 
-        IEnumerable<Food> menu_getall();
+        IEnumerable<Product> menu_getall();
     }
 }

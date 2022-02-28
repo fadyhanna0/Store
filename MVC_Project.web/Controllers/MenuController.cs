@@ -24,6 +24,8 @@ namespace MVC_Project.web.Controllers
 
         public IActionResult Dashboard()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View();
         }
         public IActionResult FoodList()
@@ -38,11 +40,11 @@ namespace MVC_Project.web.Controllers
         public IActionResult AddFood()
         {
             ViewData["categories"] = GetCategories();
-            Food food = new();
+            Product food = new();
             return View(food);
         }
         [HttpPost]
-        public IActionResult AddFood(Food food)
+        public IActionResult AddFood(Product food)
         {
             if (ModelState.IsValid)
             {
@@ -58,12 +60,12 @@ namespace MVC_Project.web.Controllers
         public IActionResult EditFood(int id)
         {
             ViewData["categories"] = GetCategories();
-            Food food = _unitOfWork.FoodList.GetById(id);
+            Product food = _unitOfWork.FoodList.GetById(id);
             return View(food);
         }
         [HttpPost]
 
-        public IActionResult EditFood(Food food)
+        public IActionResult EditFood(Product food)
         {
             _unitOfWork.FoodList.Update(food);
             _unitOfWork.Complete();
@@ -73,7 +75,7 @@ namespace MVC_Project.web.Controllers
         // Delete Food
         public IActionResult DeleteFood(int id)
         {
-            Food food = _unitOfWork.FoodList.GetById(id);
+            Product food = _unitOfWork.FoodList.GetById(id);
             _unitOfWork.FoodList.Delete(food);
             _unitOfWork.Complete();
             return RedirectToAction("FoodList");

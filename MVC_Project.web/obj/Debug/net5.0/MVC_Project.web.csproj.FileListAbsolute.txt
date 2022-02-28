@@ -682,3 +682,4 @@ E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\ref\MVC_Project.web.dll
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.pdb
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.genruntimeconfig.cache
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\Product.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.csproj.AssemblyReference.cache

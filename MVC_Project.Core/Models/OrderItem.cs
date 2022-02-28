@@ -13,7 +13,7 @@ namespace Restaurant.Models
 
         public decimal Total_item_price { get; set; }
         public Order Order { get; set; }
-        public Food Food { get; set; }
+        public Product Food { get; set; }
 
 
 

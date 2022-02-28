@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Restaurant.Models
 {
-    public class Food
+    public class Product
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is required")]

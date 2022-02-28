@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace MVC_Project.EF.Repositories
 {
-    public class mneuRepository : BaseRepository<Food>, Imenu
+    public class mneuRepository : BaseRepository<Product>, Imenu
     {
         private readonly RestaurantService _Context;
         public mneuRepository(RestaurantService Context) : base(Context)
         {
 
         }
-        public IEnumerable<Food> menu_getall()
+        public IEnumerable<Product> menu_getall()
         {
             throw new NotImplementedException();
         }

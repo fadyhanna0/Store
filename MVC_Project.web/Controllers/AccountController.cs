@@ -3,8 +3,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Core.Helper;
+using MVC_Project.Core.Interfaces;
 using MVC_Project.Core.Models;
+using Restaurant.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Controllers
@@ -13,14 +17,15 @@ namespace Controllers
     {
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
+        private readonly IUnitOfWork _unitOfWork;
 
 
         public AccountController(UserManager<AppUser> userManager,
-            SignInManager<AppUser> signInManager)
+            SignInManager<AppUser> signInManager, IUnitOfWork unitOfWork)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-
+            _unitOfWork = unitOfWork;
         }
 
         #region Registration(Sign up)
@@ -28,13 +33,16 @@ namespace Controllers
         [HttpGet]
         public IActionResult Registration()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View();
         }
        
         [HttpPost]
         public async Task<IActionResult> Registration(RegistrationVM model)
         {
-
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             try
             {
                 if (ModelState.IsValid)
@@ -53,8 +61,11 @@ namespace Controllers
                         CookieOptions cookieOptions = new CookieOptions();
                         cookieOptions.Expires = System.DateTimeOffset.Now.AddDays(10);
                         Response.Cookies.Append("CustomerId", user.Id, cookieOptions);
+                        // create Role
+                        await userManager.AddToRoleAsync(user, "User");
                         await signInManager.SignInAsync(user, false);
-                        return RedirectToAction("DisplayMenu", "CustomerMenu");
+
+                        return RedirectToAction("GetCategoriestoNav", "CustomerMenu");
                     }
                     else
                     {
@@ -82,13 +93,16 @@ namespace Controllers
         [HttpGet]
         public IActionResult AdminRegistration()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AdminRegistration(RegistrationVM model)
         {
-
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             try
             {
                 if (ModelState.IsValid)
@@ -142,6 +156,8 @@ namespace Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View();
         }
 
@@ -149,6 +165,7 @@ namespace Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM model)
         {
+           
 
             try
             {
@@ -161,6 +178,7 @@ namespace Controllers
                         
                         if (await userManager.IsInRoleAsync(user,"Admin"))
                         {
+                          
                             return RedirectToAction("Dashboard", "Menu");
                         }
                         else
@@ -168,7 +186,7 @@ namespace Controllers
                             CookieOptions cookieOptions = new CookieOptions();
                             cookieOptions.Expires = System.DateTimeOffset.Now.AddDays(10);
                             Response.Cookies.Append("CustomerId", user.Id, cookieOptions);
-                            return RedirectToAction("DisplayMenu", "CustomerMenu");
+                            return RedirectToAction("GetCategoriestoNav", "CustomerMenu");
                         }
                     }
                     else
@@ -198,6 +216,8 @@ namespace Controllers
 
         public async Task<IActionResult> LogOff()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             await signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }

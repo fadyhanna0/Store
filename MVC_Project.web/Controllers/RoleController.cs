@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVC_Project.Core.Interfaces;
 using MVC_Project.Core.Models;
+using Restaurant.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MVC_Project.web.Controllers
@@ -11,14 +15,17 @@ namespace MVC_Project.web.Controllers
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> RoleManager;
-
-        public RoleController(RoleManager<IdentityRole> _RoleManager)
+        private readonly IUnitOfWork _unitOfWork;
+        public RoleController(RoleManager<IdentityRole> _RoleManager, IUnitOfWork unitOfWork)
         {
             RoleManager = _RoleManager;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult AddRole()
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View("AddRole");
         }
 
@@ -26,6 +33,8 @@ namespace MVC_Project.web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddRole(RoleVM newRole)
         {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             if (ModelState.IsValid == true)
             {
                 IdentityRole role = new IdentityRole()
@@ -48,6 +57,7 @@ namespace MVC_Project.web.Controllers
                 }
 
             }
+
             return View(newRole);
         }
 

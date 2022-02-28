@@ -70,3 +70,21 @@ E:\ITI\asp.net mvc core\MVC_Prroject\MVC_Project_Solution\MVC_Project.EF\obj\Deb
 E:\ITI\asp.net mvc core\MVC_Prroject\MVC_Project_Solution\MVC_Project.EF\obj\Debug\net5.0\ref\MVC_Project.EF.dll
 E:\ITI\asp.net mvc core\MVC_Prroject\MVC_Project_Solution\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.pdb
 E:\ITI\asp.net mvc core\MVC_Prroject\MVC_Project_Solution\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.genruntimeconfig.cache
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.EF.deps.json
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.EF.runtimeconfig.json
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.EF.runtimeconfig.dev.json
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.EF.dll
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\ref\MVC_Project.EF.dll
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.EF.pdb
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.Core.dll
+E:\ITI\Store\Store\MVC_Project.EF\bin\Debug\net5.0\MVC_Project.Core.pdb
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.csproj.AssemblyReference.cache
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.GeneratedMSBuildEditorConfig.editorconfig
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.AssemblyInfoInputs.cache
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.AssemblyInfo.cs
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.csproj.CoreCompileInputs.cache
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.csproj.CopyComplete
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.dll
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\ref\MVC_Project.EF.dll
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.pdb
+E:\ITI\Store\Store\MVC_Project.EF\obj\Debug\net5.0\MVC_Project.EF.genruntimeconfig.cache
