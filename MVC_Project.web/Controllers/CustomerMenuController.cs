@@ -18,9 +18,11 @@ namespace MVC_Project.web.Controllers
         {
                 _unitOfWork = unitOfWork;
         }
-       public IActionResult DisplayMenu()
+       public IActionResult Product(int id)
         {
-            List<Food> food= _unitOfWork.FoodList.GetAll().ToList();
+            List<Food> food= _unitOfWork.FoodList.GetAll(x=>x.Category_Id==id).ToList();
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View(food);
         }
         [Authorize]
@@ -52,6 +54,8 @@ namespace MVC_Project.web.Controllers
                 _unitOfWork.OrderItemRepository.Add(orderitem);
                 _unitOfWork.Complete();
             }
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return RedirectToAction("DisplayMenu");
         }
         [Authorize]
@@ -73,8 +77,9 @@ namespace MVC_Project.web.Controllers
                 ViewData["TotalPrice"] = TotalPrice;
                 var Payment = _unitOfWork.PaymentRepository.GetAll();
                 ViewData["Payment"] = Payment;
-            
-            
+
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return View(OrderItem); 
         }
         [Authorize]
@@ -84,6 +89,8 @@ namespace MVC_Project.web.Controllers
             OrderItem orderItem = _unitOfWork.OrderItemRepository.GetById(s => s.Order_Id == id && s.Food_Id == FoodId);
             _unitOfWork.OrderItemRepository.Delete(orderItem);
             _unitOfWork.Complete();
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return RedirectToAction("Basket");
         }
         [Authorize]
@@ -99,14 +106,17 @@ namespace MVC_Project.web.Controllers
                 return View();
 
             }
-
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
             return RedirectToAction("Basket");
 
         }
         public IActionResult GetCategoriestoNav()
         {
-            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList(); 
-            return View("DisplayMenu", categories);
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+
+            return View("DisplayMenu");
         }
 
 

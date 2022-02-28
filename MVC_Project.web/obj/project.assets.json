@@ -7376,11 +7376,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.web\\MVC_Project.web.csproj",
+      "projectUniqueName": "E:\\ITI\\Store\\Store\\MVC_Project.web\\MVC_Project.web.csproj",
       "projectName": "MVC_Project.web",
-      "projectPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.web\\MVC_Project.web.csproj",
+      "projectPath": "E:\\ITI\\Store\\Store\\MVC_Project.web\\MVC_Project.web.csproj",
       "packagesPath": "C:\\Users\\Infotech\\.nuget\\packages\\",
-      "outputPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.web\\obj\\",
+      "outputPath": "E:\\ITI\\Store\\Store\\MVC_Project.web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Infotech\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7397,11 +7397,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.Core\\MVC_Project.Core.csproj": {
-              "projectPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.Core\\MVC_Project.Core.csproj"
+            "E:\\ITI\\Store\\Store\\MVC_Project.Core\\MVC_Project.Core.csproj": {
+              "projectPath": "E:\\ITI\\Store\\Store\\MVC_Project.Core\\MVC_Project.Core.csproj"
             },
-            "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.EF\\MVC_Project.EF.csproj": {
-              "projectPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.EF\\MVC_Project.EF.csproj"
+            "E:\\ITI\\Store\\Store\\MVC_Project.EF\\MVC_Project.EF.csproj": {
+              "projectPath": "E:\\ITI\\Store\\Store\\MVC_Project.EF\\MVC_Project.EF.csproj"
             }
           }
         }

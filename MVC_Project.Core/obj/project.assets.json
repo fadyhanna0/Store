@@ -746,11 +746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.Core\\MVC_Project.Core.csproj",
+      "projectUniqueName": "E:\\ITI\\Store\\Store\\MVC_Project.Core\\MVC_Project.Core.csproj",
       "projectName": "MVC_Project.Core",
-      "projectPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.Core\\MVC_Project.Core.csproj",
+      "projectPath": "E:\\ITI\\Store\\Store\\MVC_Project.Core\\MVC_Project.Core.csproj",
       "packagesPath": "C:\\Users\\Infotech\\.nuget\\packages\\",
-      "outputPath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.Core\\obj\\",
+      "outputPath": "E:\\ITI\\Store\\Store\\MVC_Project.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Infotech\\AppData\\Roaming\\NuGet\\NuGet.Config",

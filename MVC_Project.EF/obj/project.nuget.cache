@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uocTl5w50ZHzAiC9TOeRjRiAN3tnFYfut4OXReQ65o64xRvoVPiA7mtH6ixETVneViUbR1SYxakuB251Z1gNmA==",
+  "dgSpecHash": "TWdwS/wedxWFZqsKHIAHwe/jW5KOWJ0QqI3bTHso77N7j0XSph5CPN5GHuM45UErME2II9p3BQ7WXhZkBQFklg==",
   "success": true,
-  "projectFilePath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.EF\\MVC_Project.EF.csproj",
+  "projectFilePath": "E:\\ITI\\Store\\Store\\MVC_Project.EF\\MVC_Project.EF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Infotech\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Infotech\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.13\\microsoft.aspnetcore.cryptography.internal.5.0.13.nupkg.sha512",

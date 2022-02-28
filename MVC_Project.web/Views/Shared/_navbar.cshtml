@@ -1,5 +1,5 @@
 ﻿<!-- header section strats -->
- @model List<Category>
+
      <style>
          a:hover{
              background-color:rgb(128, 128, 255,0.5);
@@ -10,7 +10,7 @@
              border-radius:10px;
          }
      </style>
-          <nav style="position:fixed;z-index:100;width:100%;padding-left:-100px !important;display:flex;flex-direction:column;height:105px" class="bg-dark navbar navbar-expand-lg custom_nav-container">
+          <nav style="position:fixed;z-index:100;width:100%;padding-left:-100px !important;display:flex;flex-direction:column;height:105px;" class="bg-dark navbar navbar-expand-lg custom_nav-container">
         
              
 
@@ -105,9 +105,9 @@
             </div>
             </div>
                        <div  class="col-md-text-hide col-sm-1 col-lg-8" style="display:block;">
-            @foreach (var item in Model)
+            @foreach (var item in ViewBag.categories)
 {
-                <a href="#" style="color:white; font-size:17px;">@item.Name</a>
+                <a href="\CustomerMenu\Product\@item.Id" style="color:white; font-size:17px;">@item.Name</a>
  
             } </div>
           </nav>

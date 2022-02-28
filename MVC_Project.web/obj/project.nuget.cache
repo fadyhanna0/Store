@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d1HsZ0KVHKTT6cIzss+A5wSE7G3FFVPDDV7wLOVXMVjGEhnlg/grxgm1mg+emPrcXB8jiqO7y59tUVH9gAN65g==",
+  "dgSpecHash": "d41f6dplWF6IqfzxvcP2xZ0EqB6hbAXkGLuPsUAyJ44G6I4P88OV2I/cyc8SpQhbJP0rjWQgjf0P+lGP6o2KaA==",
   "success": true,
-  "projectFilePath": "E:\\ITI\\asp.net mvc core\\MVC_Prroject\\MVC_Project_Solution\\MVC_Project.web\\MVC_Project.web.csproj",
+  "projectFilePath": "E:\\ITI\\Store\\Store\\MVC_Project.web\\MVC_Project.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Infotech\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Infotech\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
