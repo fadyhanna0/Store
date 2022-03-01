@@ -7720,11 +7720,16 @@ fieldset[disabled] .form-control {
 
 /* Login Page ================================== */
 .login-page {
-  background-color: #00BCD4;
-  padding-left: 0;
-  max-width: 360px;
-  margin: 5% auto;
-  overflow-x: hidden; }
+/*    background-color: #343a40;
+*/    background-image: url(/images/login.jpg);
+    padding-left: 0;
+    max-width: 360px;
+    margin: 5% auto;
+    overflow-x: hidden;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
   .login-page .login-box .msg {
     color: #555;
     margin-bottom: 30px;
@@ -7750,11 +7755,17 @@ fieldset[disabled] .form-control {
 
 /* Sign Up Page ================================ */
 .signup-page {
-  background-color: #00BCD4;
-  padding-left: 0;
-  max-width: 360px;
-  margin: 5% auto;
-  overflow-x: hidden; }
+    /*    background-color: #343a40;
+*/
+    background-image: url(/images/login.jpg);
+    padding-left: 0;
+    max-width: 360px;
+    margin: 5% auto;
+    overflow-x: hidden;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
   .signup-page .signup-box .msg {
     color: #555;
     margin-bottom: 30px;
@@ -7780,11 +7791,15 @@ fieldset[disabled] .form-control {
 
 /* Forgot Password Page ======================== */
 .fp-page {
-  background-color: #00BCD4;
-  padding-left: 0;
-  max-width: 360px;
-  margin: 5% auto;
-  overflow-x: hidden; }
+    background-image: url(/images/login.jpg);
+    padding-left: 0;
+    max-width: 360px;
+    margin: 5% auto;
+    overflow-x: hidden;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
   .fp-page .fp-box .msg {
     color: #555;
     margin-bottom: 30px;

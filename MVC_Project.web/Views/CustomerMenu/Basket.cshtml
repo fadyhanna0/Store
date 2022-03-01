@@ -1,7 +1,7 @@
 ﻿ @model List<OrderItem>
         <div class="heading_container heading_center"></div>
         <div style="margin-top:150px"></div>
- <table  class="table table-bordered table-hover" width="50%">
+ <table  class="table table-bordered table-hover container" width="50%">
       <tr>
        <th>
             ITEM
@@ -24,8 +24,8 @@
                 
             </td>
             <td>@item.quantity</td>
-           <td>@item.Food.Price</td>
-            <td>@item.Total_item_price</td>
+           <td>@String.Format("{0:0.00}",@item.Food.Price )</td>
+            <td>@String.Format("{0:0.00}",@item.Total_item_price)</td>
             <form action="\CustomerMenu\DeleteItem\@item.Order_Id">
                 <input type="hidden" name="FoodId" value="@item.Food_Id" >
                <td><input type="submit" class="btn btn-danger del" value="Delete" ></td>
@@ -34,7 +34,7 @@
     }
 </table>
 <div style="margin:30px 0px 50px 170px">
-           <h3 style="display:inline-block;margin-right:480px"> Total Price : EGP @ViewBag.TotalPrice</h3>
+           <h3 style="display:inline-block;margin-right:480px"> Total Price : EGP @String.Format("{0:0.00}", @ViewBag.TotalPrice) </h3>
            <label for="payment">Select Payment Method</label>
     <select style="margin-right:100px" id="payment"  ">
            @foreach (var Item in ViewBag.Payment)
@@ -44,7 +44,7 @@
                 
            }
         </select>
-       <a class="btn btn-success" href="\CustomerMenu\Checkout">Confirm the Order</a>
+       <a class="btn btn-success" href="\CustomerMenu\Checkout">Checkout</a>
     </div>
    
     

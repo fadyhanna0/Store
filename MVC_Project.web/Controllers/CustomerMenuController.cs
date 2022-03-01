@@ -20,10 +20,10 @@ namespace MVC_Project.web.Controllers
         }
        public IActionResult Product(int id)
         {
-            List<Product> food= _unitOfWork.FoodList.GetAll(x=>x.Category_Id==id).ToList();
+            List<Product> Product = _unitOfWork.ProductList.GetAll(x=>x.Category_Id==id).ToList();
             List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
             ViewData["categories"] = categories;
-            return View(food);
+            return View(Product);
         }
         [Authorize]
 
@@ -45,7 +45,7 @@ namespace MVC_Project.web.Controllers
 
             if (OldOrderItem == null)
             {
-                 Product food=_unitOfWork.FoodList.GetById(id);
+                 Product food=_unitOfWork.ProductList.GetById(id);
                 OrderItem orderitem = new();
                 orderitem.Food_Id = id;
                 orderitem.Order_Id = OldOrder.Id;
@@ -56,7 +56,7 @@ namespace MVC_Project.web.Controllers
             }
             List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
             ViewData["categories"] = categories;
-            return RedirectToAction("DisplayMenu");
+            return RedirectToAction("Product", "CustomerMenu", new { id });
         }
         [Authorize]
 

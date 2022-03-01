@@ -28,16 +28,17 @@ namespace MVC_Project.web.Controllers
             ViewData["categories"] = categories;
             return View();
         }
-        public IActionResult FoodList()
+        public IActionResult ProductList()
         {
-
-            var list = _unitOfWork.FoodList.GetFood();
-            //     var food1 = _unitOfWork.FoodList.GetById(f => f.Id == 2);
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            var list = _unitOfWork.ProductList.GetFood();
+            //     var food1 = _unitOfWork.ProductList.GetById(f => f.Id == 2);
 
             return View(list);
         }
         [HttpGet]
-        public IActionResult AddFood()
+        public IActionResult AddProduct()
         {
             ViewData["categories"] = GetCategories();
             Product food = new();
@@ -48,37 +49,41 @@ namespace MVC_Project.web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.FoodList.Add(food);
+                _unitOfWork.ProductList.Add(food);
                 _unitOfWork.Complete();
                 return RedirectToAction("FoodList");
             }
             ViewData["categories"] = GetCategories();
             return View("AddFood",food);
         }
-        /////Edit Food
+        /////Edit Product
         [HttpGet]
-        public IActionResult EditFood(int id)
+        public IActionResult EditProduct(int id)
         {
             ViewData["categories"] = GetCategories();
-            Product food = _unitOfWork.FoodList.GetById(id);
+            Product food = _unitOfWork.ProductList.GetById(id);
             return View(food);
         }
         [HttpPost]
 
-        public IActionResult EditFood(Product food)
+        public IActionResult EditProduct(Product food)
         {
-            _unitOfWork.FoodList.Update(food);
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            _unitOfWork.ProductList.Update(food);
             _unitOfWork.Complete();
             return RedirectToAction("FoodList");
         }
         //...........................................................
-        // Delete Food
-        public IActionResult DeleteFood(int id)
+        // Delete Product
+        public IActionResult DeleteProduct(int id)
         {
-            Product food = _unitOfWork.FoodList.GetById(id);
-            _unitOfWork.FoodList.Delete(food);
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            Product product = _unitOfWork.ProductList.GetById(id);
+            _unitOfWork.ProductList.Delete(product);
             _unitOfWork.Complete();
-            return RedirectToAction("FoodList");
+            return RedirectToAction("ProductList");
         }
      
     }

@@ -7,7 +7,7 @@ namespace MVC_Project.Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        public IProductListRepository FoodList { get; }
+        public IProductListRepository ProductList { get; }
         public IBaseRepository<Category> CategoryRepository { get; }
         public IBaseRepository<Order> OrderRepository { get;  }
         public IBaseRepository<OrderItem> OrderItemRepository { get;}

@@ -121,7 +121,7 @@ namespace Controllers
                          await userManager.AddToRoleAsync(user, "Admin");
                         //create cookies
                         await signInManager.SignInAsync(user, false);
-                        return RedirectToAction("Dashboard", "Menu");
+                        return RedirectToAction("GetCategoriestoNav", "CustomerMenu");
                     }
                     else
                     {
@@ -179,7 +179,7 @@ namespace Controllers
                         if (await userManager.IsInRoleAsync(user,"Admin"))
                         {
                           
-                            return RedirectToAction("Dashboard", "Menu");
+                            return RedirectToAction("GetCategoriestoNav", "CustomerMenu");
                         }
                         else
                         {

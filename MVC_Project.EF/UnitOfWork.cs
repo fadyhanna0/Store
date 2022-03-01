@@ -8,7 +8,7 @@ namespace MVC_Project.EF
     public class UnitOfWork : IUnitOfWork
     {
         private readonly RestaurantService _Context;
-        public IProductListRepository FoodList { get; private set; }
+        public IProductListRepository ProductList { get; private set; }
         public IBaseRepository<Category> CategoryRepository { get; private set; }
         public IBaseRepository<Order>OrderRepository { get; private set; }
         public IBaseRepository<OrderItem> OrderItemRepository { get; private set; }
@@ -24,7 +24,7 @@ namespace MVC_Project.EF
         public UnitOfWork(RestaurantService Context)
         {
             _Context = Context;
-            FoodList = new ProductListRepository(_Context);
+            ProductList = new ProductListRepository(_Context);
             CategoryRepository = new BaseRepository<Category>(_Context);
             OrderRepository = new BaseRepository<Order>(_Context);
             OrderItemRepository = new BaseRepository<OrderItem>(_Context);

@@ -29,9 +29,26 @@
              <a style="display:inline-block" class="navbar-brand" href="index.html">
               <span> Burgesta </span>
             </a>
-            <div style="margin-left:510px"  class="collapse navbar-collapse" id="navbarSupportedContent">
+           <div   class="collapse navbar-collapse" id="navbarSupportedContent">
+   @if (User.IsInRole("Admin")) {
+       <div style="margin-left:180px">
               <ul  class="navbar-nav mx-auto">
-                <li class="nav-item active">
+                <li class="nav-item ">
+                  <a  class="nav-link" href="/Menu/ProductList"
+                    >Products </a
+                  >
+                </li>
+                 <li class="nav-item ">
+                  <a style="width:120px" class="nav-link" href="/Role/AddRole"
+                    >Add Role </a
+                  >
+                </li>
+                 <li  class="nav-item ">
+                  <a style="width:135px" class="nav-link" href="/Account/AdminRegistration"
+                    >Add Admin</a
+                  >
+                </li>
+                 <li class="nav-item ">
                   <a  class="nav-link" href="/"
                     >Home </a
                   >
@@ -39,10 +56,24 @@
                  <li class="nav-item">
                   <a class="nav-link" href="about.html">About</a>
                 </li>
-                 @{
-                    var userIdentity = User.IsInRole("Admin");
-
+                <li class="nav-item">
+                  <a class="nav-link" href="/account/logoff">Logout</a>
+                </li>
+                 </ul>
+                 </div>
                 }
+          else{
+          <div style="margin-left:510px">
+              <ul  class="navbar-nav mx-auto">
+                <li class="nav-item ">
+                  <a  class="nav-link" href="/"
+                    >Home </a
+                  >
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                
                 @if (User.Identity.IsAuthenticated == false)
                     {
                         <li class="nav-item">
@@ -55,8 +86,11 @@
                     }
                 
               </ul>
-              <div style="margin-left:20px" class="user_option">
-                <a href="" class="user_link">
+              </div>
+          }
+           
+              <div style="margin-left:140px" class="user_option">
+                <a style="margin-right:-10px" href="" class="user_link">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <a class="cart_link" href="/customerMenu/Basket">
