@@ -1,5 +1,8 @@
 ﻿@model Product
-<form method="post" action="\menu\AddFood">
+<div class="heading_container heading_center">
+        </div>
+        <div style="margin-top:110px"></div>
+<form class="container" method="post" action="\menu\AddProduct">
     <div>
         <label for="Name">Name</label>
         <input type="text" name="Name" id="Name"value=@Model.Name  class="form-control" />
@@ -35,19 +38,9 @@
            }
         </select>
         </div>
-   @* </div>
-     <label for="course_id">course</label>
-        <select name="course_id" id="course_id" class="form-control">
-           @foreach (var crsItem in ViewBag.crs)
-            {
-               
-                    <option value="@crsItem.Id" >@crsItem.Name</option>
-                
-           }
-        </select>
-    </div>*@
+  
 
-    <input type="submit" class="btn btn-sucess" value="Save" />
+    <input style="margin:10px 0px 10px 0px;width:100px" type="submit" class="btn btn-success" value="Save" />
 
   </form>
 

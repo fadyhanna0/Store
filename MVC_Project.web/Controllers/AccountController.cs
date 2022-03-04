@@ -51,7 +51,10 @@ namespace Controllers
                     {
                         Email = model.Email,
                         UserName = model.Email,
-                        IsAgree = model.IsAgree
+                        IsAgree = model.IsAgree,
+                        Address = model.Address,
+                        Name = model.Name,
+                        Phone=model.Phone
                     };
 
                     var result = await userManager.CreateAsync(user, model.Password);

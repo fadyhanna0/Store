@@ -2,6 +2,7 @@
         <div class="heading_container heading_center">
         </div>
 <div style="margin-top:120px" >
+        <a style="margin:0px 0px 10px 10px" class="btn btn-success" href="/Menu/AddProduct">Add Item</a>
 <table id="try" class="table table-bordered table-sm"  width="50%">
     <tr>
         <th>
@@ -29,15 +30,14 @@
             <td><img src="~/images/@item.Image" style="width:200px;height:200px" /></td>
            <td>@item.Description</td>
             <td>@item.Category.Name</td>    
-            <td><a class="btn btn-warning " asp-controller="Menu" asp-route-id="@item.Id" asp-action="EditFood">Edit</a></td>
-            <td><a class="btn btn-danger del" asp-controller="Menu" asp-route-id="@item.Id" asp-action="DeleteFood">Delete</a></td>
+            <td><a class="btn btn-warning " asp-controller="Menu" asp-route-id="@item.Id" asp-action="EditProduct">Edit</a></td>
+            <td><a class="btn btn-danger del" asp-controller="Menu" asp-route-id="@item.Id" asp-action="DeleteProduct">Delete</a></td>
 
 
         </tr>
     }
 </table>
 </div>
-             <a class="btn btn-success" href="/Menu/AddFood">Add Item</a>
              <script>
                  var deletebtn=document.getElementsByClassName("del");
                  for(var i=0;i<deletebtn.length;i++)

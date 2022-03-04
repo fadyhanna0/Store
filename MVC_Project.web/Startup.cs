@@ -28,9 +28,9 @@ namespace MVC_Project.web
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<RestaurantService>
-                (Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                 b => b.MigrationsAssembly(typeof(RestaurantService).Assembly.FullName)));
+            services.AddDbContext<AppService>
+                (Options => Options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                 b => b.MigrationsAssembly(typeof(AppService).Assembly.FullName)));
 
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -62,7 +62,7 @@ namespace MVC_Project.web
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 0;
-            }).AddEntityFrameworkStores<RestaurantService>()
+            }).AddEntityFrameworkStores<AppService>()
             .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);
 
             #endregion

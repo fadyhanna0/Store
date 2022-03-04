@@ -9,7 +9,7 @@ using Restaurant.Models;
 
 namespace MVC_Project.EF.Migrations
 {
-    [DbContext(typeof(RestaurantService))]
+    [DbContext(typeof(AppService))]
     [Migration("20220130213642_init")]
     partial class init
     {

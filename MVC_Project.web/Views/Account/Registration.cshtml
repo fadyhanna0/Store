@@ -42,7 +42,13 @@
                     <div asp-validation-summary="All" class="text-danger"></div>
 
                     <div class="msg">Register a new membership</div>
-
+                     <div class="input-group">
+                        <label asp-for="Name">Enter Your Full Nmae</label>
+                        <div class="form-line">
+                            <input type="text" class="form-control" asp-for="Name" placeholder="Name" autofocus>
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
@@ -52,6 +58,8 @@
                         </div>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
+
+                    
 
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -72,7 +80,20 @@
                         </div>
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
-
+                     <div class="input-group">
+                        <label asp-for="Phone">Enter Your Phone Number</label>
+                        <div class="form-line">
+                            <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" autofocus>
+                        </div>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                     <div class="input-group">
+                        <label asp-for="Address"></label>
+                        <div class="form-line">
+                            <input type="text" class="form-control" asp-for="Address" placeholder="Address" autofocus>
+                        </div>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
                     <div class="form-group">
                         <input type="checkbox" asp-for="IsAgree" id="terms" class="filled-in chk-col-pink">
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>

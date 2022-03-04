@@ -15,7 +15,7 @@ namespace MVC_Project.EF.Repositories
         IEnumerable<T> GetAll();
         T GetById(int id);
         T GetById(Expression<Func<T, bool>> filter);
-        IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter, string[] includes = null);
 
         T Update(T entity);
     }

@@ -4,13 +4,13 @@ using MVC_Project.Core.Models;
 
 namespace Restaurant.Models
 {
-    public class RestaurantService : IdentityDbContext<AppUser>
+    public class AppService : IdentityDbContext<AppUser>
     {
-        public RestaurantService()
+        public AppService()
         {
 
         }
-        public RestaurantService(DbContextOptions<RestaurantService> options) : base(options)
+        public AppService(DbContextOptions<AppService> options) : base(options)
         {
 
         }
@@ -28,7 +28,7 @@ namespace Restaurant.Models
         //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<OrderItem>().HasKey(nameof(OrderItem.Order_Id), nameof(OrderItem.Food_Id));
+            modelBuilder.Entity<OrderItem>().HasKey(nameof(OrderItem.Order_Id), nameof(OrderItem.Product_Id));
 
             base.OnModelCreating(modelBuilder);
 

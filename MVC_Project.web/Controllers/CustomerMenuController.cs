@@ -27,7 +27,7 @@ namespace MVC_Project.web.Controllers
         }
         [Authorize]
 
-        public IActionResult AddInBasket([FromRoute]int id, int quantity)
+        public IActionResult AddInBasket([FromRoute] int id , int ProductId, int quantity)
         {
             string CustomerId = Request.Cookies["CustomerId"].ToString();
             var OldOrder=_unitOfWork.OrderRepository.GetById(s=>s.Customer_Id==CustomerId && s.Accepted==false);
@@ -41,22 +41,33 @@ namespace MVC_Project.web.Controllers
                 _unitOfWork.Complete();
                 OldOrder = _unitOfWork.OrderRepository.GetById(s => s.Customer_Id == CustomerId && s.Accepted == false);
             }
-            var OldOrderItem = _unitOfWork.OrderItemRepository.GetById(s => s.Order_Id == OldOrder.Id && s.Food_Id == id);
+            var OldOrderItem = _unitOfWork.OrderItemRepository.GetById(s => s.Order_Id == OldOrder.Id && s.Product_Id == ProductId);
 
             if (OldOrderItem == null)
             {
-                 Product food=_unitOfWork.ProductList.GetById(id);
+                 Product food=_unitOfWork.ProductList.GetById(ProductId);
                 OrderItem orderitem = new();
-                orderitem.Food_Id = id;
+                orderitem.Product_Id = ProductId;
                 orderitem.Order_Id = OldOrder.Id;
                 orderitem.quantity = quantity;
                 orderitem.Total_item_price = quantity*food.Price;
                 _unitOfWork.OrderItemRepository.Add(orderitem);
                 _unitOfWork.Complete();
             }
-            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            if (OldOrderItem != null)
+            {
+                OldOrderItem.quantity = quantity;
+                _unitOfWork.Complete();
+            }
+                List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
             ViewData["categories"] = categories;
-            return RedirectToAction("Product", "CustomerMenu", new { id });
+            //if id == 0 this meaning this request become from ProductDetails View
+            if (id == 0)
+            {
+                 id = ProductId;
+                return RedirectToAction("ProductDetails", "CustomerMenu", new { id });
+            }
+            return RedirectToAction("Product", "CustomerMenu", new { id});
         }
         [Authorize]
 
@@ -84,9 +95,9 @@ namespace MVC_Project.web.Controllers
         }
         [Authorize]
 
-        public IActionResult DeleteItem([FromRoute]int id,int FoodId)
+        public IActionResult DeleteItem([FromRoute]int id,int ProductId)
         {
-            OrderItem orderItem = _unitOfWork.OrderItemRepository.GetById(s => s.Order_Id == id && s.Food_Id == FoodId);
+            OrderItem orderItem = _unitOfWork.OrderItemRepository.GetById(s => s.Order_Id == id && s.Product_Id == ProductId);
             _unitOfWork.OrderItemRepository.Delete(orderItem);
             _unitOfWork.Complete();
             List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
@@ -103,7 +114,14 @@ namespace MVC_Project.web.Controllers
             var OldOrder = _unitOfWork.OrderRepository.GetById(s => s.Customer_Id == CustomerId && s.Accepted == false);
             if (OldOrder != null)
             {
+                int TotalPrice = 0;
+                foreach (var item in OldOrder.OrderItemsList)
+                {
+                    TotalPrice+= (int)item.Total_item_price;
+                }
+                OldOrder.Price = TotalPrice;
                 OldOrder.Accepted = true;
+                OldOrder.DateTime= DateTime.Now.ToString();
                 _unitOfWork.Complete();
                 return View();
 
@@ -121,8 +139,66 @@ namespace MVC_Project.web.Controllers
             ViewData["categories"] = categories;
             return View("DisplayMenu");
         }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AllOrders()
+        {
+            var Order = _unitOfWork.OrderRepository.GetAll(x => x.Accepted == true&&x.Confirmed==null).ToList();
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View(Order);
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AcceptOrders(int id)
+        {
+            var Order=_unitOfWork.OrderRepository.GetById(x=>x.Id==id);
+            Order.Confirmed = true;
+            _unitOfWork.Complete();
+            return RedirectToAction("AllOrders");
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteOrders(int id)
+        {
+            var Order = _unitOfWork.OrderRepository.GetById(x => x.Id == id);
+            Order.Confirmed = false;
+            _unitOfWork.Complete();
+            return RedirectToAction("AllOrders");
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult ConfirmedOrders()
+        { 
+            var ConfirmedOrders = _unitOfWork.OrderRepository.GetAll(x => x.Accepted == true && x.Confirmed == true).ToList();
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View(ConfirmedOrders);
+        }
+        public IActionResult CustomerOrders()
+        {
+            string CustomerId = Request.Cookies["CustomerId"].ToString();
+            var CustomerOrders = _unitOfWork.OrderRepository.GetAll(x => x.Accepted == true && x.Customer_Id==CustomerId).ToList();
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View(CustomerOrders);
+        }
+        public IActionResult ProductDetails(int id)
+        {
+            var product=_unitOfWork.ProductList.GetById(id);
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View(product);
+        }
+        public IActionResult Payment(int id)
+        {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View();
+        }
 
-
+        public IActionResult aboutus(int id)
+        {
+            List<Category> categories = _unitOfWork.CategoryRepository.GetAll().ToList();
+            ViewData["categories"] = categories;
+            return View();
+        }
 
 
 
@@ -147,4 +223,4 @@ namespace MVC_Project.web.Controllers
         //}
 
     }
-}
+    }

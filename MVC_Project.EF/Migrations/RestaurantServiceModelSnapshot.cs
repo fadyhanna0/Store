@@ -8,7 +8,7 @@ using Restaurant.Models;
 
 namespace MVC_Project.EF.Migrations
 {
-    [DbContext(typeof(RestaurantService))]
+    [DbContext(typeof(AppService))]
     partial class RestaurantServiceModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -50,6 +50,9 @@ namespace MVC_Project.EF.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -59,6 +62,9 @@ namespace MVC_Project.EF.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -267,6 +273,9 @@ namespace MVC_Project.EF.Migrations
                     b.Property<bool?>("Accepted")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("Confirmed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Customer_Id")
                         .HasColumnType("nvarchar(450)");
 
@@ -293,7 +302,7 @@ namespace MVC_Project.EF.Migrations
                     b.Property<int>("Order_Id")
                         .HasColumnType("int");
 
-                    b.Property<int>("Food_Id")
+                    b.Property<int>("Product_Id")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Total_item_price")
@@ -302,9 +311,9 @@ namespace MVC_Project.EF.Migrations
                     b.Property<int>("quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("Order_Id", "Food_Id");
+                    b.HasKey("Order_Id", "Product_Id");
 
-                    b.HasIndex("Food_Id");
+                    b.HasIndex("Product_Id");
 
                     b.ToTable("OrderItems");
                 });
@@ -424,21 +433,21 @@ namespace MVC_Project.EF.Migrations
 
             modelBuilder.Entity("Restaurant.Models.OrderItem", b =>
                 {
-                    b.HasOne("Restaurant.Models.Product", "Food")
-                        .WithMany()
-                        .HasForeignKey("Food_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Restaurant.Models.Order", "Order")
-                        .WithMany()
+                        .WithMany("OrderItemsList")
                         .HasForeignKey("Order_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Food");
+                    b.HasOne("Restaurant.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("Product_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Restaurant.Models.Product", b =>
@@ -450,6 +459,11 @@ namespace MVC_Project.EF.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Restaurant.Models.Order", b =>
+                {
+                    b.Navigation("OrderItemsList");
                 });
 #pragma warning restore 612, 618
         }

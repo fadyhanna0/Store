@@ -1,0 +1,84 @@
+﻿@model List<Order>
+
+<body>
+
+     <div class="heading_container heading_center">
+        </div>
+        <div style="margin-top:120px"></div>
+        @foreach (var item in Model)
+       {
+           
+       
+    <div style="width: 100%; display: flex ; flex-direction: row; margin-top: 50px;  align-items: center;">
+
+        <div style="display: flex; flex-direction:column; width:20%; margin-left: 30px;">
+            <h3 style="display: block;margin-right: 50px; ">@item.AppUser.Name</h3>
+              <h5 style="display: block;margin-right: 50px; ">@item.AppUser.Phone</h5>
+            <h5 style="display: block;margin-right: 50px; ">@item.AppUser.Address</h5>
+             <h5 style="display: block;margin-right: 50px; ">@item.DateTime</h5>
+
+
+
+        </div>
+
+
+
+        <div style="width: 50%;margin-right: 50px;">
+
+            <table class="table  table-hover" style="border-bottom: 1px solid #999;">
+                <tr  style="background-color:#e0ebeb">
+                     <th>Product</th>
+                    <th>quantity</th>
+                    <th>Price</th>
+                    <th>Total_item_price</th>
+                </tr>
+
+                <!-- for loop on items-->
+                @foreach (var item2 in item.OrderItemsList){
+                <tr>
+                      <td>@item2.Product.Description</td>
+                    <td>@item2.quantity</td>
+                    <td>@String.Format("{0:0.00}",@item2.Product.Price)</td>
+                    <td>@String.Format("{0:0.00}",@item2.Total_item_price)</td>
+                  
+                </tr>
+
+                }
+            </table>
+
+
+        </div>
+
+
+
+        <div>
+
+            <h3 style="display:block;"> EGP @String.Format("{0:0.00}",@item.Price)</h3>
+                <a class="btn btn-danger del" href="\CustomerMenu\DeleteOrders\@item.Id">Delete</a>
+                <a class="btn btn-success" href="\CustomerMenu\AcceptOrders\@item.Id">Confirm the Order</a>
+          
+
+        </div>
+
+
+    </div>
+    <hr>
+    }
+
+
+
+</body>
+
+   <script>
+                 var deletebtn=document.getElementsByClassName("del");
+                 for(var i=0;i<deletebtn.length;i++)
+                 {
+                       deletebtn[i].addEventListener("click",function(e){
+                           var res =confirm("Do you want to delete this Item?")
+                           if(res==false){
+                               e.preventDefault();
+                           }
+                       });
+                 }
+
+             </script>

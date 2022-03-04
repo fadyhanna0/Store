@@ -7,7 +7,7 @@ namespace MVC_Project.EF
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly RestaurantService _Context;
+        private readonly AppService _Context;
         public IProductListRepository ProductList { get; private set; }
         public IBaseRepository<Category> CategoryRepository { get; private set; }
         public IBaseRepository<Order>OrderRepository { get; private set; }
@@ -21,7 +21,7 @@ namespace MVC_Project.EF
 
 
 
-        public UnitOfWork(RestaurantService Context)
+        public UnitOfWork(AppService Context)
         {
             _Context = Context;
             ProductList = new ProductListRepository(_Context);

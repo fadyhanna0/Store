@@ -520,6 +520,7 @@ E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\MVC_Project.web.pdb
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\MVC_Project.web.Views.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\MVC_Project.web.Views.pdb
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\AutoMapper.dll
+E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Castle.Core.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Humanizer.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -535,6 +536,7 @@ E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\ITI\Store\Store\MVC_Project.web\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -655,6 +657,7 @@ E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Account\ForgetPa
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Account\Registration.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\CustomerMenu\AllOrders.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\CustomerMenu\Basket.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\CustomerMenu\basket1.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\CustomerMenu\Checkout.cshtml.g.cs
@@ -662,9 +665,15 @@ E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Home\Index.cshtm
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Menu\Dashboard.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Role\AddRole.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\AddProduct.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\ConfirmedOrders.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\CustomerOrders.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\DisplayMenu.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\EditProduct.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\Product.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\ProductDetails.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\ProductList.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\_footer.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\_header.cshtml.g.cs
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -680,6 +689,5 @@ E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.dll
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\ref\MVC_Project.web.dll
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.pdb
 E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\MVC_Project.web.genruntimeconfig.cache
-E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\ProductList.cshtml.g.cs
-E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\EditProduct.cshtml.g.cs
-E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\AddProduct.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\Payment.cshtml.g.cs
+E:\ITI\Store\Store\MVC_Project.web\obj\Debug\net5.0\Razor\Views\Shared\aboutus.cshtml.g.cs

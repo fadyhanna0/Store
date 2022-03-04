@@ -9,9 +9,9 @@ namespace MVC_Project.EF.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        protected RestaurantService _Context;
+        protected AppService _Context;
         private DbSet<T> _dbSet;
-        public BaseRepository(RestaurantService Context)
+        public BaseRepository(AppService Context)
         {
             _Context = Context;
             _dbSet = _Context.Set<T>();
@@ -33,9 +33,13 @@ namespace MVC_Project.EF.Repositories
         {
             return _Context.Set<T>().ToList();
         }
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
-        {
-            return _Context.Set<T>().Where(filter).ToList();
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter, string[] includes = null)
+           {
+            IQueryable<T> query = _Context.Set<T>();
+            if (includes != null)
+                foreach (var item in includes)
+                    query = query.Include(item);
+            return query.Where(filter).ToList();
         }
         //Add method
         public T Add(T entity)

@@ -7,8 +7,8 @@ namespace MVC_Project.EF.Repositories
 {
     public class mneuRepository : BaseRepository<Product>, Imenu
     {
-        private readonly RestaurantService _Context;
-        public mneuRepository(RestaurantService Context) : base(Context)
+        private readonly AppService _Context;
+        public mneuRepository(AppService Context) : base(Context)
         {
 
         }

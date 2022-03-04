@@ -1,4 +1,5 @@
 ﻿using MVC_Project.Core.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,9 +19,11 @@ namespace Restaurant.Models
         [ForeignKey("Payment")]
         public int? Payment_Id { get; set; }
         public bool? Accepted { get; set; }
-        public Payment Payment { get; set; }
-        public AppUser AppUser { get; set; }
+        public bool? Confirmed { get; set; }
 
+        public virtual Payment Payment { get; set; }
+        public virtual  AppUser AppUser { get; set; }
+        public virtual ICollection<OrderItem> OrderItemsList { get; set; }
 
 
     }

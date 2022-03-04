@@ -19,7 +19,7 @@ namespace Restaurant.Models
         public string Image { get; set; }
         [ForeignKey("Category")]
         public int Category_Id { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
 
 

@@ -1,38 +1,235 @@
 ﻿<!-- header section strats -->
 
      <style>
+         body{
+         font-size:0.8em;
+         }
+
+       
          a:hover{
              background-color:rgb(128, 128, 255,0.5);
+           
          }
          a{
              
              padding:0px 20px 0px 20px;
              border-radius:10px;
          }
-     </style>
-          <nav style="position:fixed;z-index:100;width:100%;padding-left:-100px !important;display:flex;flex-direction:column;height:105px;" class="bg-dark navbar navbar-expand-lg custom_nav-container">
-        
-             
+         @@media(max-width:1120px){
+         #navv
+         {
+             position:relative
+         }
+         }
+         @@media (min-width: 960px) {
+    #catg {
+    display:none;
+    background-color:aqua;
+    }
+}
+ .search {
+        width: 1000px;
+        display: flex;
+        margin-left: -5px;
+        margin-bottom: 30px;
+    }
 
+    .search-box {
+        width: 50%;
+        height: 30px;
+        padding: 10px;
+        margin-top: 25px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid #d1d1d1;
+        text-transform: capitalize;
+        background: none;
+        color: #a9a9a9;
+        outline: none;
+         font-size: 0.8em;
+    }
+
+    .search-btn {
+        width: 15%;
+        height: 30px;
+        margin-top: 25px;
+        padding: 5px 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color:gray;
+        color: #fff;
+        text-transform: capitalize;
+        font-size: 1em;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .search-btn:hover
+    {
+        background-color:#fff;
+        color:gray;
+    }
+/* before */
+    @@media (max-width:1023px) {
+        /*.search {
+            width: 350px;
+            display: none;
+        }*/
+
+        .search-btn {
+            padding: 5px 10px;
+        }
+
+    }
+    .custom_nav-container .navbar-nav {
+    padding-left: 5%;
+    align-items:center;
+}
+@@media(min-width:992px)
+{
+    #search_small
+    {
+        display:none;
+
+    }
+
+    .navbar-collapse{
+    background-color: red;
+    }
+    
+    #navbarSupportedContent
+    {
+       background-color: rgba(52, 58, 64, 0)!important;
+    }
+    #icons-small
+    {
+        display:none;
+    }
+    
+}
+@@media(max-width:992px)
+{
+    .search
+    {
+        width:300px;
+        margin-left:-25px;
+        margin-bottom:0px;
+    }
+    .search-box
+    {
+        margin-top:0px;
+    }
+    .search-btn
+    {
+        margin-top:0px;
+    }
+                  
+    #search_big
+    {
+        display:none;
+    }
+    .navbar-collapse{
+  background-color: red;
+  padding:30px;
+  margin-top:0px!important;
+}
+#icons{
+display:none;
+}
+#cat_big
+{
+    display:none!important;
+    height:0px!important;
+}
+}
+/*@@media (min-width: 434px) {
+  .navbar-collapse{
+  background-color: red;
+  }  
+}*/
+/*#343a40;*/
+     </style>
+     <div style="position:fixed;z-index:90;width:100%;display:block">
+          <nav id="navv" style=" height:58px;" class="bg-dark navbar navbar-expand-lg custom_nav-container">
+        
+             <div class="container-fluid">
+
+                  <a style="display:inline-block" class="navbar-brand" href="index.html">
+              <span> sofa </span>
+            </a>
+            <div id="search_small" class="search" style="margin-right: -125px;">
+                            <input type="text" class="search-box" placeholder="search chiars,tables,..product">
+                            <button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+           <div style="margin-left:10px;margin-top:10px;" class="user_option" id ="icons-small">
+            @*<a style="margin-right:0px" href="" class="user_link">
+                  <i class="fa fa-user" aria-hidden="false"></i>
+                </a>*@
+                <a class="cart_link" href="/customerMenu/Basket">
+                  <svg 
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                 toppx"
+                    y="0px"
+                    viewBox="0 0 456.029 456.029"
+                    style="enable-background: new 0 0 456.029 456.029;"
+                    xml:space="preserve"
+                  >
+                    <g>
+                      <g>
+                        <path
+                          d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
+                        />
+                      </g>
+                    </g>
+                    <g>
+                      <g>
+                        <path
+                          d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                   C457.728,97.71,450.56,86.958,439.296,84.91z"
+                        />
+                      </g>
+                    </g>
+                    <g>
+                      <g>
+                        <path
+                          d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+                 @if (User.IsInRole("Admin")) {
+                   
+                        <a href="/customerMenu/AllOrders" class="order_online"> Orders </a>
+                     }
+                     @if (User.IsInRole("User")) {
+                        <a href="/customerMenu/CustomerOrders" class="order_online"> Orders </a>
+                     }
+                </div>
+                        
             <button
               class="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
+              aria-controls="navbarSupportleft"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class=""> </span>
+              <span class="navbar-toggler-icon"> </span>
             </button>
-            <div style="display:flex;flex-direction:row">
-             <a style="display:inline-block" class="navbar-brand" href="index.html">
-              <span> Burgesta </span>
-            </a>
-           <div   class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                  <div   class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color:#343a40ee; margin-top:15px;">
    @if (User.IsInRole("Admin")) {
-       <div style="margin-left:180px">
-              <ul  class="navbar-nav mx-auto">
+       @*<div style="margin-left:18px">*@
+              <ul class="navbar-nav m-auto text-start" style="align-items: center; align-content:center; padding-left:2px!important; ">
                 <li class="nav-item ">
                   <a  class="nav-link" href="/Menu/ProductList"
                     >Products </a
@@ -54,45 +251,55 @@
                   >
                 </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="/CustomerMenu/aboutus">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/account/logoff">Logout</a>
                 </li>
                  </ul>
-                 </div>
+                 
                 }
           else{
-          <div style="margin-left:510px">
-              <ul  class="navbar-nav mx-auto">
+          @*<div style="margin-left:0px">*@
+             <ul class="navbar-nav m-auto text-end" style="align-items: center; align-content: center; margin-left:200px!important;">
+
+                    <li class="nav-item"> <div id="search_big" class="search" style="margin-right: -355px;">
+                            <input type="text" class="search-box" placeholder="search chiars,tables,..product">
+                            <button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div></li>
                 <li class="nav-item ">
                   <a  class="nav-link" href="/"
                     >Home </a
-                  >
-                </li>
+                  > </li>
+                
                  <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
+                  <a class="nav-link" href="/CustomerMenu/aboutus">About</a> </li>
                 
                 @if (User.Identity.IsAuthenticated == false)
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="/account/Login">Login</a>
                         </li>
-                    }else{
+                    }
+                    else{
                     <li class="nav-item">
                   <a class="nav-link" href="/account/logoff">Logout</a>
                 </li>
                     }
-                
+                @foreach (var item in ViewBag.categories)
+{
+              <li class="nav-item" id="catg" style="padding:10px;">  <a href="\CustomerMenu\Product\@item.Id" style="color:white;text-transform:uppercase; ">@item.Name</a> </li>
+               
+            }
               </ul>
-              </div>
+             
           }
            
-              <div style="margin-left:140px" class="user_option">
-                <a style="margin-right:-10px" href="" class="user_link">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                </a>
+           
+              <div style="margin-left:0px" class="user_option" id ="icons">
+            @*<a style="margin-right:0px" href="" class="user_link">
+                  <i class="fa fa-user" aria-hidden="false"></i>
+                </a>*@
                 <a class="cart_link" href="/customerMenu/Basket">
                   <svg 
                     version="1.1"
@@ -133,21 +340,43 @@
                     </g>
                   </svg>
                 </a>
-                <form class="form-inline">
+                
+                @if (User.IsInRole("Admin")) {
+                    <form class="form-inline">
                   <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
                 </form>
-                <a href="" class="order_online"> Orders </a>
-              </div>
+                        <a href="/customerMenu/AllOrders" class="order_online"> Orders </a>
+                        <a style="width:170px" href="/customerMenu/ConfirmedOrders" class="order_online"> Confirmed Orders </a>
+                     }
+                     @if (User.IsInRole("User")) {
+                        <a href="/customerMenu/CustomerOrders" class="order_online"> Orders </a>
+                     }
+              </div> 
             </div>
-            </div>
-                       <div  class="col-md-text-hide col-sm-1 col-lg-8" style="display:block;">
-            @foreach (var item in ViewBag.categories)
-{
-                <a href="\CustomerMenu\Product\@item.Id" style="color:white; font-size:17px;">@item.Name</a>
- 
-            } </div>
+            
+                      
+                   
+            
+            
+     
+            </div >
+                       @*<div  class="col-md-text-hide col-sm-1 col-lg-8" style="display:block;">
+             </div>*@
+             
           </nav>
+         
+          
+          <div id="cat_big" style="width:100%;z-index:100; background-color:#343a40; display:flex; flex-direction:row; justify-content:center; padding:10px; " >
+              
+              @foreach (var item in ViewBag.categories)
+            {
+                <a href="\CustomerMenu\Product\@item.Id" style="color:white; margin-left:20px;  text-transform:uppercase;">@item.Name</a> 
+ 
+            }
+          </div>
+           </div>
+          
        
       <!-- end header section -->

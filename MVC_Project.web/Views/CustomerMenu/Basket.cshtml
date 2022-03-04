@@ -2,7 +2,7 @@
         <div class="heading_container heading_center"></div>
         <div style="margin-top:150px"></div>
  <table  class="table table-bordered table-hover container" width="50%">
-      <tr>
+      <tr  style="background-color:#e0ebeb">
        <th>
             ITEM
         </th>
@@ -19,15 +19,15 @@
     {
         <tr>
             <td>
-                <img src="~/images/@item.Food.Image"style="height:6rem;width:8rem;display:inline" />
-                <p style="display:inline;margin-left:10px">@item.Food.Description</p>
+                <img src="~/images/@item.Product.Image"style="height:6rem;width:8rem;display:inline" />
+                <p style="display:inline;margin-left:10px">@item.Product.Description</p>
                 
             </td>
             <td>@item.quantity</td>
-           <td>@String.Format("{0:0.00}",@item.Food.Price )</td>
+           <td>@String.Format("{0:0.00}",@item.Product.Price )</td>
             <td>@String.Format("{0:0.00}",@item.Total_item_price)</td>
             <form action="\CustomerMenu\DeleteItem\@item.Order_Id">
-                <input type="hidden" name="FoodId" value="@item.Food_Id" >
+                <input type="hidden" name="ProductId" value="@item.Product_Id" >
                <td><input type="submit" class="btn btn-danger del" value="Delete" ></td>
             </form>
         </tr>
@@ -36,17 +36,17 @@
 <div style="margin:30px 0px 50px 170px">
            <h3 style="display:inline-block;margin-right:480px"> Total Price : EGP @String.Format("{0:0.00}", @ViewBag.TotalPrice) </h3>
            <label for="payment">Select Payment Method</label>
-    <select style="margin-right:100px" id="payment"  ">
+    <select style="margin-right:100px" id="payment" onchange="AjaxCall()" ">
            @foreach (var Item in ViewBag.Payment)
             {
                
-                    <option value="@Item.Id" >@Item.Type</option>
+                    <option value="@Item.Type" >@Item.Type</option>
                 
            }
         </select>
        <a class="btn btn-success" href="\CustomerMenu\Checkout">Checkout</a>
     </div>
-   
+   <div id="div1"></div>
     
              <script>
                  var deletebtn=document.getElementsByClassName("del");
@@ -59,5 +59,25 @@
                            }
                        });
                  }
+                 </script>
 
-             </script>
+
+
+
+@section Scripts{
+<script>
+      function AjaxCall(){
+            var id=$("#payment").val();
+            console.log(id);
+            if(id=="Credit")
+            $.ajax(
+                {
+                    url  : "/CustomerMenu/Payment",
+                    success: function(result){
+                                $("#div1").html(result);
+                        }
+                }
+                );
+           
+             }
+             </script>}
